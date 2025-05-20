@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #047a8f;
+  --color-brand-dark: #036c7f;
+  --color-brand-light: #048da5;
+}
+
+@utility layout {
+  @apply flex min-h-screen flex-col bg-gradient-to-tl from-neutral-100 to-neutral-200 pt-12 antialiased;
+}
+
+@utility img-full {
+  @apply h-full w-full object-cover;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+.profil-img {
+  @apply mx-auto size-36 overflow-clip rounded-full border-4  border-brand bg-white shadow-xl outline-2 outline-offset-2 outline-brand/50;
+}
+
+.user-job {
+  @apply flex justify-center text-xs text-brand/70;
+}
+
+.user-name {
+  @apply flex justify-center text-3xl font-semibold text-brand;
+}
+
+.user-slogan {
+  @apply flex justify-center  text-brand/70;
+}
+
+.share-button {
+  @apply m-2 ml-auto inline-flex cursor-pointer items-center gap-1 rounded-full bg-white p-4 py-1.5 text-sm text-neutral-600 shadow sm:p-6 sm:py-2;
+}
+
+.social-links {
+  @apply mx-auto flex justify-center gap-2;
+}
+
+.social-links .social-link {
+  @apply flex size-9 items-center justify-center rounded-full bg-neutral-100 text-xs text-brand shadow;
+}
+
+.social-links .social-link svg {
+  @apply h-6;
+}
+
+h3 {
+  @apply my-3 mt-8 mb-4 flex items-center justify-center gap-5 text-xs text-nowrap text-brand;
+}
+h3::before,
+h3::after {
+  content: "";
+  height: 0.5px;
+  background: linear-gradient(90deg, var(--color-brand), transparent);
+  width: 100%;
+}
+
+h3::before {
+  background: linear-gradient(-90deg, var(--color-brand), transparent);
+}
+
+.copy {
+  @apply flex flex-col items-center justify-center bg-neutral-200 p-4 py-2 text-sm;
+}
+
+@utility button {
+  @apply relative mx-8 flex-center flex h-12 max-w-md rounded-full px-14 md:mx-auto md:w-md;
+}
+
+.first-button {
+  @apply button bg-gradient-to-bl from-brand-light to-brand-dark text-white shadow outline-2 outline-offset-1 outline-brand-light/50;
+}
+
+.first-button::before {
+  position: absolute;
+  z-index: -2;
+  border-radius: 100px;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 7);
+  animation: slow-ping 1s ease-out infinite;
+}
+
+.button {
+  @apply button bg-gradient-to-bl from-neutral-50 to-neutral-200 text-neutral-800 shadow outline-1 outline-offset-1 outline-neutral-300;
+}
+.button span,
+.first-button span {
+  @apply truncate;
+}
+
+@keyframes slow-ping {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    width: 105%;
+    height: 130%;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.about-me {
+  @apply relative m-6 my-2 h-20 overflow-clip rounded-lg bg-white/50 p-4 py-2 text-sm;
+}
+
+.about-me::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* ersetzt top, left, width, height */
+  background: linear-gradient(0deg, white 10%, transparent); /* Schreibfehler korrigiert */
+}
+.about {
+  @apply relative;
+}
+.about button {
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  @apply absolute -mt-5 flex-center h-6 rounded-full bg-neutral-100 px-4 text-sm text-neutral-500 shadow;
+}
